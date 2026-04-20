@@ -1,0 +1,21 @@
+{
+  "task-runners": [
+    {
+      "runner-type": "javascript",
+      "allowed-env": [
+        "PATH",
+        "NODE_PATH",
+        "NODE_FUNCTION_ALLOW_BUILTIN",
+        "NODE_FUNCTION_ALLOW_EXTERNAL",
+        "N8N_RUNNERS_AUTH_TOKEN",
+        "N8N_RUNNERS_TASK_BROKER_URI",
+        "GENERIC_TIMEZONE",
+        "TZ"
+      ],
+      "env-overrides": {
+        "NODE_FUNCTION_ALLOW_EXTERNAL": "docx",
+        "NODE_PATH": "/opt/n8n-external-modules/node_modules"
+      }
+    }
+  ]
+}
