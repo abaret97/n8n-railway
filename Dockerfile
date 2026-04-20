@@ -9,6 +9,14 @@ USER root
 
 COPY --from=su-exec-src /sbin/su-exec /usr/local/bin/su-exec
 
+# Install docx at the NODE_PATH configured in n8n-task-runners.json
+# so the JS task runner can resolve require('docx') in Code nodes.
+RUN mkdir -p /opt/n8n-external-modules \
+  && cd /opt/n8n-external-modules \
+  && npm init -y >/dev/null \
+  && npm install --omit=dev --no-audit --no-fund docx \
+  && chown -R node:node /opt/n8n-external-modules
+
 RUN printf '%s\n' \
     '#!/bin/sh' \
     'set -e' \
