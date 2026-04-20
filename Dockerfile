@@ -1,5 +1,8 @@
 FROM n8nio/n8n:latest
 
 USER root
-RUN cd /usr/local/lib/node_modules/n8n && npm install docx
+RUN mkdir -p /home/node/.n8n/nodes && \
+    cd /home/node/.n8n/nodes && \
+    npm init -y && \
+    npm install docx
 USER node
